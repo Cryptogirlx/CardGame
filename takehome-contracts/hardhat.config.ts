@@ -34,11 +34,21 @@ export const config: HardhatUserConfig & any = {
   },
   solidity: {
     compilers: [
-      {version: "0.8.12", settings: {}},
-      {version: "0.8.9", settings: {}},
-      {version: "0.8.0", settings: {}},
-      {version: "0.6.2", settings: {}},
+      {
+        version: "0.8.20",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 1000,
+            details: {
+              yul: true,
+            },
+          },
+          viaIR: true,
+        },
+      },
     ],
+  },
     settings: {
       metadata: {
         // Not including the metadata hash
@@ -47,12 +57,7 @@ export const config: HardhatUserConfig & any = {
       },
       // You should disable the optimizer when debugging
       // https://hardhat.org/hardhat-network/#solidity-optimizer-support
-      optimizer: {
-        enabled: true,
-        runs: 1, // https://docs.soliditylang.org/en/v0.8.9/internals/optimizer.html#optimizer-parameter-runs
-      },
     },
-  },
   typechain: {
     outDir: "typechain",
     target: "ethers-v5",

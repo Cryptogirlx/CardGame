@@ -21,15 +21,269 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface ExPopulusCardsInterface extends ethers.utils.Interface {
   functions: {
-    "mintCard()": FunctionFragment;
+    "abilityCount()": FunctionFragment;
+    "addOrRemoveFromWhiteList(address,bool)": FunctionFragment;
+    "approve(address,uint256)": FunctionFragment;
+    "balanceOf(address)": FunctionFragment;
+    "cardCount()": FunctionFragment;
+    "cardInGamePlay(uint256,bool)": FunctionFragment;
+    "defineAbilities(uint256,uint8,uint8)": FunctionFragment;
+    "deployer()": FunctionFragment;
+    "gameLogicAddress()": FunctionFragment;
+    "getAbility(uint256)": FunctionFragment;
+    "getAbilityID(uint256)": FunctionFragment;
+    "getApproved(uint256)": FunctionFragment;
+    "getAttack(uint256)": FunctionFragment;
+    "getCharacterCard(uint256)": FunctionFragment;
+    "getHealth(uint256)": FunctionFragment;
+    "getPriority(uint256)": FunctionFragment;
+    "isApprovedForAll(address,address)": FunctionFragment;
+    "isInGame(uint256)": FunctionFragment;
+    "mintCard(int8,int8,address,uint256,uint8,uint8)": FunctionFragment;
+    "name()": FunctionFragment;
+    "ownerOf(uint256)": FunctionFragment;
+    "safeTransferFrom(address,address,uint256)": FunctionFragment;
+    "setApprovalForAll(address,bool)": FunctionFragment;
+    "setGameLogicAdress(address)": FunctionFragment;
+    "supportsInterface(bytes4)": FunctionFragment;
+    "symbol()": FunctionFragment;
+    "tokenURI(uint256)": FunctionFragment;
+    "transferFrom(address,address,uint256)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "mintCard", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "abilityCount",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "addOrRemoveFromWhiteList",
+    values: [string, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "approve",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+  encodeFunctionData(functionFragment: "cardCount", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "cardInGamePlay",
+    values: [BigNumberish, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "defineAbilities",
+    values: [BigNumberish, BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "deployer", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "gameLogicAddress",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAbility",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAbilityID",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getApproved",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAttack",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getCharacterCard",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getHealth",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getPriority",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isApprovedForAll",
+    values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isInGame",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mintCard",
+    values: [
+      BigNumberish,
+      BigNumberish,
+      string,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish
+    ]
+  ): string;
+  encodeFunctionData(functionFragment: "name", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "ownerOf",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "safeTransferFrom",
+    values: [string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setApprovalForAll",
+    values: [string, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setGameLogicAdress",
+    values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "supportsInterface",
+    values: [BytesLike]
+  ): string;
+  encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "tokenURI",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferFrom",
+    values: [string, string, BigNumberish]
+  ): string;
 
+  decodeFunctionResult(
+    functionFragment: "abilityCount",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "addOrRemoveFromWhiteList",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cardCount", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "cardInGamePlay",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "defineAbilities",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "deployer", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "gameLogicAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getAbility", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getAbilityID",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getApproved",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getAttack", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getCharacterCard",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getHealth", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getPriority",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "isApprovedForAll",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "isInGame", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "mintCard", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "safeTransferFrom",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setApprovalForAll",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setGameLogicAdress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "supportsInterface",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "tokenURI", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "transferFrom",
+    data: BytesLike
+  ): Result;
 
-  events: {};
+  events: {
+    "AddressWhitelisted(address)": EventFragment;
+    "Approval(address,address,uint256)": EventFragment;
+    "ApprovalForAll(address,address,bool)": EventFragment;
+    "CardIsInGame(uint256,bool)": EventFragment;
+    "CardMinted(int8,int8,uint256,address,uint256)": EventFragment;
+    "Transfer(address,address,uint256)": EventFragment;
+  };
+
+  getEvent(nameOrSignatureOrTopic: "AddressWhitelisted"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CardIsInGame"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CardMinted"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
+
+export type AddressWhitelistedEvent = TypedEvent<
+  [string] & { _address: string }
+>;
+
+export type ApprovalEvent = TypedEvent<
+  [string, string, BigNumber] & {
+    owner: string;
+    approved: string;
+    tokenId: BigNumber;
+  }
+>;
+
+export type ApprovalForAllEvent = TypedEvent<
+  [string, string, boolean] & {
+    owner: string;
+    operator: string;
+    approved: boolean;
+  }
+>;
+
+export type CardIsInGameEvent = TypedEvent<
+  [BigNumber, boolean] & { tokenID: BigNumber; status: boolean }
+>;
+
+export type CardMintedEvent = TypedEvent<
+  [number, number, BigNumber, string, BigNumber] & {
+    _health: number;
+    _attack: number;
+    _ability: BigNumber;
+    to: string;
+    tokenID: BigNumber;
+  }
+>;
+
+export type TransferEvent = TypedEvent<
+  [string, string, BigNumber] & { from: string; to: string; tokenId: BigNumber }
+>;
 
 export class ExPopulusCards extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -75,29 +329,866 @@ export class ExPopulusCards extends BaseContract {
   interface: ExPopulusCardsInterface;
 
   functions: {
+    abilityCount(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    addOrRemoveFromWhiteList(
+      _address: string,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    approve(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    balanceOf(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    cardCount(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    cardInGamePlay(
+      tokenID: BigNumberish,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    defineAbilities(
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    deployer(overrides?: CallOverrides): Promise<[string]>;
+
+    gameLogicAddress(overrides?: CallOverrides): Promise<[string]>;
+
+    getAbility(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [
+        [number, number, boolean] & {
+          priority: number;
+          power: number;
+          abilityUsed: boolean;
+        }
+      ]
+    >;
+
+    getAbilityID(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    getAttack(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getCharacterCard(
+      cardID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [
+        [number, number, BigNumber] & {
+          attack: number;
+          health: number;
+          abilityID: BigNumber;
+        }
+      ]
+    >;
+
+    getHealth(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getPriority(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    isApprovedForAll(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
+    isInGame(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     mintCard(
+      _health: BigNumberish,
+      _attack: BigNumberish,
+      to: string,
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    name(overrides?: CallOverrides): Promise<[string]>;
+
+    ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    "safeTransferFrom(address,address,uint256)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "safeTransferFrom(address,address,uint256,bytes)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setApprovalForAll(
+      operator: string,
+      approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setGameLogicAdress(
+      _gameLogicAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
+    symbol(overrides?: CallOverrides): Promise<[string]>;
+
+    tokenURI(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    transferFrom(
+      from: string,
+      to: string,
+      tokenID: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
+  abilityCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+  addOrRemoveFromWhiteList(
+    _address: string,
+    status: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  approve(
+    to: string,
+    tokenId: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+  cardCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+  cardInGamePlay(
+    tokenID: BigNumberish,
+    status: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  defineAbilities(
+    tokenID: BigNumberish,
+    _power: BigNumberish,
+    _priority: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  deployer(overrides?: CallOverrides): Promise<string>;
+
+  gameLogicAddress(overrides?: CallOverrides): Promise<string>;
+
+  getAbility(
+    abilityID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<
+    [number, number, boolean] & {
+      priority: number;
+      power: number;
+      abilityUsed: boolean;
+    }
+  >;
+
+  getAbilityID(
+    tokenID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  getApproved(
+    tokenId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  getAttack(
+    tokenID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  getCharacterCard(
+    cardID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<
+    [number, number, BigNumber] & {
+      attack: number;
+      health: number;
+      abilityID: BigNumber;
+    }
+  >;
+
+  getHealth(
+    tokenID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  getPriority(
+    abilityID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  isApprovedForAll(
+    owner: string,
+    operator: string,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
+  isInGame(tokenID: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+
   mintCard(
+    _health: BigNumberish,
+    _attack: BigNumberish,
+    to: string,
+    tokenID: BigNumberish,
+    _power: BigNumberish,
+    _priority: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  name(overrides?: CallOverrides): Promise<string>;
+
+  ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+  "safeTransferFrom(address,address,uint256)"(
+    from: string,
+    to: string,
+    tokenId: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "safeTransferFrom(address,address,uint256,bytes)"(
+    from: string,
+    to: string,
+    tokenId: BigNumberish,
+    data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setApprovalForAll(
+    operator: string,
+    approved: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setGameLogicAdress(
+    _gameLogicAddress: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  supportsInterface(
+    interfaceId: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
+  symbol(overrides?: CallOverrides): Promise<string>;
+
+  tokenURI(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+  transferFrom(
+    from: string,
+    to: string,
+    tokenID: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    mintCard(overrides?: CallOverrides): Promise<void>;
+    abilityCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    addOrRemoveFromWhiteList(
+      _address: string,
+      status: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    approve(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    cardCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    cardInGamePlay(
+      tokenID: BigNumberish,
+      status: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    defineAbilities(
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    deployer(overrides?: CallOverrides): Promise<string>;
+
+    gameLogicAddress(overrides?: CallOverrides): Promise<string>;
+
+    getAbility(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [number, number, boolean] & {
+        priority: number;
+        power: number;
+        abilityUsed: boolean;
+      }
+    >;
+
+    getAbilityID(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    getAttack(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getCharacterCard(
+      cardID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [number, number, BigNumber] & {
+        attack: number;
+        health: number;
+        abilityID: BigNumber;
+      }
+    >;
+
+    getHealth(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getPriority(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    isApprovedForAll(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    isInGame(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    mintCard(
+      _health: BigNumberish,
+      _attack: BigNumberish,
+      to: string,
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    name(overrides?: CallOverrides): Promise<string>;
+
+    ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+    "safeTransferFrom(address,address,uint256)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "safeTransferFrom(address,address,uint256,bytes)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setApprovalForAll(
+      operator: string,
+      approved: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setGameLogicAdress(
+      _gameLogicAddress: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    symbol(overrides?: CallOverrides): Promise<string>;
+
+    tokenURI(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+    transferFrom(
+      from: string,
+      to: string,
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
   };
 
-  filters: {};
+  filters: {
+    "AddressWhitelisted(address)"(
+      _address?: null
+    ): TypedEventFilter<[string], { _address: string }>;
+
+    AddressWhitelisted(
+      _address?: null
+    ): TypedEventFilter<[string], { _address: string }>;
+
+    "Approval(address,address,uint256)"(
+      owner?: string | null,
+      approved?: string | null,
+      tokenId?: BigNumberish | null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { owner: string; approved: string; tokenId: BigNumber }
+    >;
+
+    Approval(
+      owner?: string | null,
+      approved?: string | null,
+      tokenId?: BigNumberish | null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { owner: string; approved: string; tokenId: BigNumber }
+    >;
+
+    "ApprovalForAll(address,address,bool)"(
+      owner?: string | null,
+      operator?: string | null,
+      approved?: null
+    ): TypedEventFilter<
+      [string, string, boolean],
+      { owner: string; operator: string; approved: boolean }
+    >;
+
+    ApprovalForAll(
+      owner?: string | null,
+      operator?: string | null,
+      approved?: null
+    ): TypedEventFilter<
+      [string, string, boolean],
+      { owner: string; operator: string; approved: boolean }
+    >;
+
+    "CardIsInGame(uint256,bool)"(
+      tokenID?: null,
+      status?: null
+    ): TypedEventFilter<
+      [BigNumber, boolean],
+      { tokenID: BigNumber; status: boolean }
+    >;
+
+    CardIsInGame(
+      tokenID?: null,
+      status?: null
+    ): TypedEventFilter<
+      [BigNumber, boolean],
+      { tokenID: BigNumber; status: boolean }
+    >;
+
+    "CardMinted(int8,int8,uint256,address,uint256)"(
+      _health?: null,
+      _attack?: null,
+      _ability?: null,
+      to?: null,
+      tokenID?: null
+    ): TypedEventFilter<
+      [number, number, BigNumber, string, BigNumber],
+      {
+        _health: number;
+        _attack: number;
+        _ability: BigNumber;
+        to: string;
+        tokenID: BigNumber;
+      }
+    >;
+
+    CardMinted(
+      _health?: null,
+      _attack?: null,
+      _ability?: null,
+      to?: null,
+      tokenID?: null
+    ): TypedEventFilter<
+      [number, number, BigNumber, string, BigNumber],
+      {
+        _health: number;
+        _attack: number;
+        _ability: BigNumber;
+        to: string;
+        tokenID: BigNumber;
+      }
+    >;
+
+    "Transfer(address,address,uint256)"(
+      from?: string | null,
+      to?: string | null,
+      tokenId?: BigNumberish | null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { from: string; to: string; tokenId: BigNumber }
+    >;
+
+    Transfer(
+      from?: string | null,
+      to?: string | null,
+      tokenId?: BigNumberish | null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { from: string; to: string; tokenId: BigNumber }
+    >;
+  };
 
   estimateGas: {
+    abilityCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    addOrRemoveFromWhiteList(
+      _address: string,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    approve(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    cardCount(overrides?: CallOverrides): Promise<BigNumber>;
+
+    cardInGamePlay(
+      tokenID: BigNumberish,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    defineAbilities(
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    deployer(overrides?: CallOverrides): Promise<BigNumber>;
+
+    gameLogicAddress(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getAbility(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getAbilityID(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getAttack(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getCharacterCard(
+      cardID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getHealth(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getPriority(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    isApprovedForAll(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    isInGame(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     mintCard(
+      _health: BigNumberish,
+      _attack: BigNumberish,
+      to: string,
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    name(overrides?: CallOverrides): Promise<BigNumber>;
+
+    ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "safeTransferFrom(address,address,uint256)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "safeTransferFrom(address,address,uint256,bytes)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setApprovalForAll(
+      operator: string,
+      approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setGameLogicAdress(
+      _gameLogicAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    symbol(overrides?: CallOverrides): Promise<BigNumber>;
+
+    tokenURI(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    transferFrom(
+      from: string,
+      to: string,
+      tokenID: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
+    abilityCount(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    addOrRemoveFromWhiteList(
+      _address: string,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    approve(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    balanceOf(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    cardCount(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    cardInGamePlay(
+      tokenID: BigNumberish,
+      status: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    defineAbilities(
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    deployer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    gameLogicAddress(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    getAbility(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getAbilityID(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getAttack(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getCharacterCard(
+      cardID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getHealth(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getPriority(
+      abilityID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    isApprovedForAll(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    isInGame(
+      tokenID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     mintCard(
+      _health: BigNumberish,
+      _attack: BigNumberish,
+      to: string,
+      tokenID: BigNumberish,
+      _power: BigNumberish,
+      _priority: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "safeTransferFrom(address,address,uint256)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "safeTransferFrom(address,address,uint256,bytes)"(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setApprovalForAll(
+      operator: string,
+      approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setGameLogicAdress(
+      _gameLogicAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    tokenURI(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    transferFrom(
+      from: string,
+      to: string,
+      tokenID: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
