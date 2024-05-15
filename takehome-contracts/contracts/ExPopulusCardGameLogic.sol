@@ -119,6 +119,8 @@ contract ExPopulusCardGameLogic is Ownable {
     }
 
     function battle(uint fieldID, uint card1, uint card2, uint card3) external {
+		// Runs battle logic
+
         uint playerID = battlefields[fieldID].playerID;
         if (battlefields[fieldID].status != FieldStatus.Active)
             revert InactiveOrPausedBattleField();
@@ -216,12 +218,10 @@ contract ExPopulusCardGameLogic is Ownable {
                 battlefields[fieldID].roundDetails.push(battleDetails);
 
                 emit RoundFinished(fieldID, block.timestamp);
-
-          
             }
 
-			    playerIndex++;
-                enemyIndex++;
+            playerIndex++;
+            enemyIndex++;
         }
     }
 
@@ -251,6 +251,10 @@ contract ExPopulusCardGameLogic is Ownable {
         uint card3
     ) external returns (uint) {
         // registers a player to a battlefield
+		// this function can be made internal and can be called in battle too, it's a matter of desing preference
+		// TODO : missing implementation of setting the cards active on the battefield so they can't be transferred by 
+		// calling cardInGamePlay on the NFT
+
         if (
             msg.sender != exPoPulusCards.ownerOf(card1) &&
             msg.sender != exPoPulusCards.ownerOf(card2) &&
@@ -284,7 +288,7 @@ contract ExPopulusCardGameLogic is Ownable {
         return playerCount;
     }
 
-	 function claimRewards(uint fieldID, uint playerID) public {
+    function claimRewards(uint fieldID, uint playerID) public {
         // players can claim their rewards for a specific battlefield
 
         if (battlefields[fieldID].playerID != playerID)
@@ -292,7 +296,7 @@ contract ExPopulusCardGameLogic is Ownable {
         if (battlefields[fieldID].rewardsClaimed)
             revert RewardsClaimedAlready();
 
-		REWARD_TOKEN.approve(address(this), type(uint256).max);
+        REWARD_TOKEN.approve(address(this), type(uint256).max);
 
         uint winningStreak = players[battlefields[fieldID].playerID].winstreak;
 
@@ -323,8 +327,13 @@ contract ExPopulusCardGameLogic is Ownable {
         }
     }
 
-     function decodeRoundDetails(bytes memory data) internal pure returns (Round memory) {
+	//-------------------------------------------------------------
+    // INTERNAL FUNCTIONS
+    //-------------------------------------------------------------
 
+    function decodeRoundDetails(
+        bytes memory data
+    ) internal pure returns (Round memory) {
         (
             int enemyHealth,
             bool enemyDeath,
@@ -335,15 +344,16 @@ contract ExPopulusCardGameLogic is Ownable {
             uint timestamp
         ) = abi.decode(data, (int, bool, bool, int, bool, bool, uint));
 
-        return Round({
-            enemyHealth: enemyHealth,
-            enemyDeath: enemyDeath,
-            enemyAbilityUsed: enemyAbilityUsed,
-            playerHealth: playerHealth,
-            playerDeath: playerDeath,
-            playerAbilityUsed: playerAbilityUsed,
-            timestamp: timestamp
-        });
+        return
+            Round({
+                enemyHealth: enemyHealth,
+                enemyDeath: enemyDeath,
+                enemyAbilityUsed: enemyAbilityUsed,
+                playerHealth: playerHealth,
+                playerDeath: playerDeath,
+                playerAbilityUsed: playerAbilityUsed,
+                timestamp: timestamp
+            });
     }
 
     //-------------------------------------------------------------
@@ -361,7 +371,7 @@ contract ExPopulusCardGameLogic is Ownable {
     }
 
     function getBattleDetails(uint fieldID) public view {
-        // this function would look up the hash of the battleData saved in BattleField then decode it
+        //TODO this function would look up the hash of the battleData saved in BattleField then decode it by callig decodeRoundDetails
     }
 
     function getCardAddress() public view returns (address) {

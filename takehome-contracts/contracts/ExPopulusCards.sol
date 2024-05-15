@@ -176,6 +176,8 @@ contract ExPopulusCards is ERC721 {
 
     // *** OVERRIDES *** //
 
+	// NOTE: if a card is active on a battlefield we disable transfer the  game can't be disrupted
+
     function transferFrom(
         address from,
         address to,
